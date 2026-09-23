@@ -1,0 +1,21 @@
+Date,Product,Quantity,Unit_Price,Total_Sale,Sales_Rep,Region
+2024-08-01,Business Analytics Software,$2,$2499.00,$4998.00,Sarah Chen,NSW
+2024-08-01,Office Chair - Ergonomic,$15,$299.50,$4492.50,Michael Wong,VIC
+2024-08-02,Standing Desk,$8,$599.00,$4792.00,Emma Thompson,QLD
+2024-08-02,Laptop - Business Grade,$12,$1899.00,$22788.00,David Kumar,NSW
+2024-08-03,Conference Table,$3,$1250.00,$3750.00,Lisa Park,WA
+2024-08-03,Projector - 4K Business,$6,$799.95,$4799.70,Sarah Chen,NSW
+2024-08-04,Whiteboard - Interactive,$4,$1899.00,$7596.00,Michael Wong,VIC
+2024-08-05,Office Phone System,$10,$189.50,$1895.00,Emma Thompson,QLD
+2024-08-05,Printer - Multifunction,$8,$449.00,$3592.00,David Kumar,NSW
+2024-08-06,Security Camera System,$2,$1299.00,$2598.00,Lisa Park,WA
+2024-08-07,Router - Business Grade,$25,$199.95,$4998.75,Sarah Chen,NSW
+2024-08-08,Monitor - 27 inch,$18,$389.00,$7002.00,Michael Wong,VIC
+2024-08-09,Desk Lamp - LED,$45,$79.95,$3597.75,Emma Thompson,QLD
+2024-08-10,Filing Cabinet,$12,$249.50,$2994.00,David Kumar,NSW
+2024-08-11,Air Purifier - Office,$7,$299.00,$2093.00,Lisa Park,WA
+2024-08-12,Coffee Machine - Commercial,$4,$899.95,$3599.80,Sarah Chen,NSW
+2024-08-13,Shredder - Industrial,$5,$399.00,$1995.00,Michael Wong,VIC
+2024-08-14,UPS Battery Backup,$9,$179.95,$1619.55,Emma Thompson,QLD
+2024-08-15,Keyboard - Wireless,$35,$89.50,$3132.50,David Kumar,NSW
+2024-08-16,Mouse - Ergonomic,$35,$45.95,$1608.25,Lisa Park,WA
