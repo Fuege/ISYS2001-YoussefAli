@@ -4,7 +4,7 @@ I am starting this diary today on the 28/08/2026 to start tracking my progress f
 
 ## 28 August 2026 — Choose the problem and design the app
 
-Choose the Problem: The problem i have chosen is that small purchases are hard to track alongside large bills. So a university student would need a student spending and saving coach to assist them. The student needs a clear spending summary and a realistic weekly savings amount, rather than a generic answer that ignores their transactions. 
+Choose the Problem: The problem i have chosen is that small purchases are hard to track alongside large bills. So a university student would need a student spending and saving coach to assist them. The student needs a clear spending summary and a realistic weekly savings amount, rather than a generic answer that ignores their transactions.
 
 **Objective:** build a student spending and savings coach using the techniques in the unit.
 
@@ -27,3 +27,12 @@ The chat input will accept non-empty questions about the uploaded data or saving
 The planned outputs are a spending summary, a category table, and a savings plan showing the required weekly amount and any shortfall. The chat feature will make real Gemini requests using the current summary and savings plan as context.
 
 I also identified limits in how the results should be presented. Money coming in may include refunds or transfers. Net cash flow will mean money in minus money out during the uploaded period; it will not represent the user’s account balance or guaranteed future savings. The program will also avoid estimating a monthly rate from an incomplete transaction export.
+
+## 2nd October 2026 — Working through an example to help create pseudo code
+
+for the past few days I worked through an example by hand to check the calculations before writing the pseudo code and finally the Python code. I used wages of $1,000 and expenses of $400 for rent, $50 and $25 for groceries, and $25 for transport. This gave $1,000 coming in, $500 going out, and a net cash flow of $500. Grouping the expenses by category gave Housing $400, Food $75, and Transport $25.
+I then checked a savings example with a $500 goal, $100 already saved, four weeks remaining, and $80 available each week. The remaining amount was $400, meaning the user would need to save $100 per week. This left a weekly shortfall of $20. At their current contribution, they would have $420 saved by the end of the four weeks.
+I also considered rounding. If one cent remains and there are three weeks available, the required weekly contribution must round up to one cent because contributions cannot include fractions of a cent. This avoids showing a contribution that would leave the user short of their goal.
+After checking these examples, I wrote pseudocode for the upload, savings planner, and chat features. For uploads, I planned checks for a non-empty CSV with the four required columns, valid dates, and valid amounts converted into integer cents. Blank descriptions and categories will receive clear labels. The program will calculate money in, money out, and spending totals using a category dictionary, then display the summary and sorted category totals. A successful upload will replace the previous summary and clear the old chat. Invalid input will produce a useful error message and clear stale results.
+For the savings planner, I outlined validation and calculations for the remaining amount, required weekly contribution, shortfall, and projected total. Remaining amounts and shortfalls will have a minimum of zero, and the required weekly contribution will round upwards. Recalculating the plan will replace the current plan and clear the old chat. I will probably write this logic myself rather than use a financial library.
+For chat, I planned to require a non-empty message and a successfully loaded summary. The program will read the API key privately and send Gemini the finance system instruction, recent conversation, current summary, and current savings plan using requests with a timeout. Successful replies will be added to the chat history. Failed requests will show a useful status message without presenting an error as a Gemini reply.
