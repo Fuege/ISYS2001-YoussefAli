@@ -43,3 +43,9 @@ I started converting my plan into Python by adding a setup cell to install speci
 I wrote the money_to_cents() function to convert dollar amounts into integer cents. For example, an input of 45.50 becomes 4550 cents. I used Decimal to parse the input without introducing binary floating-point rounding errors. The function removes surrounding spaces and supports dollar signs, including negative amounts written as -$45.50.
 I also added validation to reject invalid numbers, infinite values, and amounts containing fractions of a cent. Each error gives a clear message explaining what needs correcting. The function accepts a label so the message can identify the input that caused the problem.
 Finally, I added the dollars() function to display cent values as dollar amounts with commas and two decimal places. These helper functions will let the analysis and savings planner calculate using integer cents while presenting results in a familiar money format.
+
+## 6 October 2026 — Creating sample transaction files
+
+I created two fictional CSV files to use while developing the program. The first contains the transactions from my hand-worked example, with $1,000 coming in and $500 going out. The second represents a tighter budget, with $800 coming in and $750 going out.
+
+Both files use the required Date, Description, Category and Amount columns. Having two datasets gives me different expected results to compare and a way to check that the program uses newly uploaded data.
