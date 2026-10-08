@@ -49,3 +49,13 @@ Finally, I added the dollars() function to display cent values as dollar amounts
 I created two fictional CSV files to use while developing the program. The first contains the transactions from my hand-worked example, with $1,000 coming in and $500 going out. The second represents a tighter budget, with $800 coming in and $750 going out.
 
 Both files use the required Date, Description, Category and Amount columns. Having two datasets gives me different expected results to compare and a way to check that the program uses newly uploaded data.
+
+## 8 October 2026 — Loading and validating CSV files and Calculating and displaying spending summaries
+
+I wrote the `load_transactions()` function to read a CSV and turn its rows into transaction dictionaries. I used pandas to read the values as text so that my money-validation function can check each amount before it is used.
+
+I added checks for missing uploads, incorrect file types, empty files, missing columns and invalid dates. The function also checks each amount and gives blank descriptions and categories the labels “No description” and “Uncategorised”. An invalid row stops the upload with an explanation.
+
+I wrote `summarise_transactions()` to calculate money in, money out and net cash flow using a loop. Positive amounts are added to money in. Negative amounts are converted to positive spending values and added to money out.
+
+I used a dictionary to keep a running spending total for each category. The summary also records the transaction count and date range. I added `summary_text()` to display the results with the largest spending categories first. It shows up to ten categories individually and combines any remaining categories into one total.
