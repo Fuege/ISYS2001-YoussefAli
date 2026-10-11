@@ -59,3 +59,13 @@ I added checks for missing uploads, incorrect file types, empty files, missing c
 I wrote `summarise_transactions()` to calculate money in, money out and net cash flow using a loop. Positive amounts are added to money in. Negative amounts are converted to positive spending values and added to money out.
 
 I used a dictionary to keep a running spending total for each category. The summary also records the transaction count and date range. I added `summary_text()` to display the results with the largest spending categories first. It shows up to ten categories individually and combines any remaining categories into one total.
+
+## 11 October 2026 — Implementing the savings planner and Setting up Gemini and the finance persona
+
+I converted the savings-plan pseudocode into `calculate_savings_plan()`. It validates the goal, amount already saved, weeks remaining and weekly contribution, then calculates the remaining amount, required weekly contribution, weekly shortfall and projected total.
+
+The calculations use integer cents, with the required weekly amount rounded upwards. I also prevented negative remaining amounts when a goal has already been reached. For the $500 example, the function calculates $100 needed each week, a $20 weekly shortfall and a projected total of $420. I added `plan_text()` to explain these results to the user.
+
+I added the Gemini connection using the requests library and set the model to `gemini-3.5-flash-lite`. I wrote a system instruction for Campus Budget Coach to give brief budgeting explanations based on the supplied summary and savings plan.
+
+The instruction tells the model to quote the figures accurately, ask for clarification when needed and redirect unrelated questions. It also tells the model to treat transaction labels as data. I added `read_api_key()` to retrieve `GOOGLE_API_KEY` from colab secrets.
