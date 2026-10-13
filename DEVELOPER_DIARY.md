@@ -69,3 +69,19 @@ The calculations use integer cents, with the required weekly amount rounded upwa
 I added the Gemini connection using the requests library and set the model to `gemini-3.5-flash-lite`. I wrote a system instruction for Campus Budget Coach to give brief budgeting explanations based on the supplied summary and savings plan.
 
 The instruction tells the model to quote the figures accurately, ask for clarification when needed and redirect unrelated questions. It also tells the model to treat transaction labels as data. I added `read_api_key()` to retrieve `GOOGLE_API_KEY` from colab secrets.
+
+## 13 October 2026 — Building the Gradio interface, Connecting the functions to the interface, Building chat requests and handling failures
+
+Building chat requests and handling failures
+
+I wrote `get_gemini_reply()` to send the current spending summary, savings plan and question to Gemini. It also includes up to ten recent conversation messages so follow-up questions have context. I added a helper to handle the different text formats returned in Gradio chat history.
+
+The request uses a 45-second timeout. I added messages for connection failures, exhausted quota, rejected requests and responses without readable text. These failures are reported separately from model replies, so the interface only adds an assistant message when Gemini returns a usable answer.
+
+I wrote callback functions to connect the analysis, savings planner and chat to Gradio. These functions return the text, tables and stored values that the interface needs.
+
+A successful analysis replaces the current summary and clears the previous conversation. An invalid upload clears the old summary and results so the chat cannot continue using outdated figures. Calculating a new savings plan also clears the conversation. For chat, I added checks for empty questions, messages longer than 2,000 characters and questions sent before a transaction summary has been loaded.
+
+I built the interface with three tabs: Your spending, Savings goal and Talk to your coach. The spending tab contains the CSV upload, sample files, analysis button, summary and category table. The savings tab contains the four planning inputs and the calculated results.
+
+The chat tab contains the conversation, question box, Send button and status message. I used `gr.State` to store the current summary and plan for each browser session. I also added guidance about the CSV format, the limits of cash-flow figures and the information sent to Gemini when a question is submitted.
