@@ -85,3 +85,13 @@ A successful analysis replaces the current summary and clears the previous conve
 I built the interface with three tabs: Your spending, Savings goal and Talk to your coach. The spending tab contains the CSV upload, sample files, analysis button, summary and category table. The savings tab contains the four planning inputs and the calculated results.
 
 The chat tab contains the conversation, question box, Send button and status message. I used `gr.State` to store the current summary and plan for each browser session. I also added guidance about the CSV format, the limits of cash-flow figures and the information sent to Gemini when a question is submitted.
+
+## 15 October 2026 — Documenting the currency-handling bug and fix and Testing calculations and invalid inputs
+
+I documented a problem in the inherited workshop approach, which compared raw Amount values with zero. Reproducing that comparison with `$1000.00` and `-$50.00` produces a TypeError because the values are strings.
+
+The new loader handles these values by converting them into integer cents before any comparisons or calculations. I added a regression case expecting $1,000 coming in, $50 going out and $950 net cash flow. This checks that the new approach handles the input that caused the earlier comparison to fail.
+
+I added assertions using the expected results from my hand-worked example and the tighter-budget dataset. The savings tests cover the normal example, an affordable contribution, goals already reached or exceeded, and rounding cases where the remaining amount does not divide evenly across the weeks.
+
+I also included invalid money values, invalid week values, empty files, missing columns and impossible dates. Further checks cover blank labels, the currency regression and clearing old interface results. The notebook’s saved output reports that all these assertion cases passed. These checks cover the calculations and validation; Gemini’s wording still needs separate review.
