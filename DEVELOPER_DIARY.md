@@ -95,3 +95,11 @@ The new loader handles these values by converting them into integer cents before
 I added assertions using the expected results from my hand-worked example and the tighter-budget dataset. The savings tests cover the normal example, an affordable contribution, goals already reached or exceeded, and rounding cases where the remaining amount does not divide evenly across the weeks.
 
 I also included invalid money values, invalid week values, empty files, missing columns and impossible dates. Further checks cover blank labels, the currency regression and clearing old interface results. The notebook’s saved output reports that all these assertion cases passed. These checks cover the calculations and validation; Gemini’s wording still needs separate review.
+
+## 16 October 2026 — Reviewing live replies and launching the app
+
+I reviewed the three saved live Gemini replies. The budgeting reply used the expected $1,000 money in, $500 money out, $500 net cash flow and $20 weekly savings shortfall. The unrelated dragon-story request was redirected to budgeting, and “Can I afford it?” prompted a question about the intended purchase.
+
+I also included an optional connection check that reports HTTP status codes without displaying credentials. The saved authenticated check returned HTTP 200. The final launch cell builds the Gradio app, and its saved output records a temporary public link.
+
+I added notes explaining the main functions and how they connect. I also noted the submission checks: reviewing my explanations and diary dates, checking repository and ZIP contents, confirming collaborator access and following the Blackboard submission requirements.
