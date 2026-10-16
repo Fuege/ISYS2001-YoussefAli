@@ -1,8 +1,8 @@
 # Developer's diary
 
-I am starting this diary today on the 28/08/2026 to start tracking my progress for this assignment and project.
+I am starting this diary today on the 28/09/2026 to start tracking my progress for this assignment and project.
 
-## 28 August 2026 — Choose the problem and design the app
+## 28 September 2026 — Choose the problem and design the app
 
 Choose the Problem: The problem i have chosen is that small purchases are hard to track alongside large bills. So a university student would need a student spending and saving coach to assist them. The student needs a clear spending summary and a realistic weekly savings amount, rather than a generic answer that ignores their transactions.
 
@@ -14,7 +14,7 @@ Choose the Problem: The problem i have chosen is that small purchases are hard t
 
 **Next:**  Identify inputs and outputs to help later on.
 
-## 29 August 2026 — Choosing my inputs and outputs
+## 29 September 2026 — Choosing my inputs and outputs
 
 I worked on defining the inputs and outputs for the finance assistant before starting development. This will help me work out what information the program should need, how it should validate that information, and what results it should produce.
 
